@@ -12,6 +12,9 @@ on:
       dburl:
         description: 'db url'
         required: true
+      arg_1:
+        description: 'arg 1'
+        required: false
       
 jobs:
   deploy:
@@ -30,4 +33,5 @@ jobs:
         -e TASK="${{ github.event.inputs.task }}" \
         -e TOKEN="${{ github.event.inputs.token }}" \
         -e DB_URL="${{ github.event.inputs.dburl }}" \
+        -e ARG_1="${{ github.event.inputs.arg_1 }}" \
         ghcr.io/admicro/transgui-cli:latest
